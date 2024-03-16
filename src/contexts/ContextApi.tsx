@@ -1,0 +1,63 @@
+"use client";
+
+import React, { createContext, useState, useEffect, useContext } from "react";
+import { useColorMode } from "@chakra-ui/react";
+import { ThemeContext } from "@emotion/react";
+import { color } from "framer-motion";
+type colorPalette = {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  text: string;
+  background: string;
+};
+type contextVariables = {
+  palette: colorPalette;
+};
+export const MyContext = createContext<contextVariables>({
+  palette: {
+    primary: "#33d7cc",
+    secondary: "#95d0ca",
+    tertiary: "#183663",
+    background: "#fffafb",
+    text: "#1f1f1f",
+  },
+});
+
+export const useMyContext = () => useContext(MyContext);
+
+const ContextApi = ({ children }: { children: React.ReactNode }) => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  const [palette, setPalette] = useState<colorPalette>({
+    primary: "#33d7cc",
+    secondary: "#95d0ca",
+    tertiary: "#183663",
+    background: "#fffafb",
+    text: "#1f1f1f",
+  });
+  useEffect(() => {
+    if (colorMode === "light") {
+      setPalette({
+        primary: "#33d7cc",
+        secondary: "#95d0ca",
+        tertiary: "#183663",
+        background: "#fffafb",
+        text: "#1f1f1f",
+      });
+    } else if (colorMode === "dark") {
+      setPalette({
+        primary: "#28ccc1",
+        secondary: "#2f6a64",
+        tertiary: "#9cbae7",
+        background: "#050001",
+        text: "#e0e0e0",
+      });
+    }
+  }, [colorMode]);
+  return (
+    <MyContext.Provider value={{ palette }}>{children}</MyContext.Provider>
+  );
+};
+
+export default ContextApi;
