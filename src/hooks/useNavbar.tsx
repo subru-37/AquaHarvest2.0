@@ -4,13 +4,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 export default function useNavbar() {
-  const [open, setOpen] = React.useState<boolean>(false);
   const [scrollp, setScrollP] = useState<number>(window.scrollY);
   const [scroll, setScroll] = useState<boolean>(false);
-  function toggleDrawer(open: boolean) {
-    setOpen(open);
-    // console.log(open);
-  }
   useEffect(() => {
     window.addEventListener('scroll', navScrolled);
     function navScrolled() {
@@ -27,5 +22,5 @@ export default function useNavbar() {
       window.removeEventListener('scroll', navScrolled);
     };
   }, [scrollp]);
-  return [scroll, open, toggleDrawer, scrollp] as const;
+  return [scroll, scrollp] as const;
 }
