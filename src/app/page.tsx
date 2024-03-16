@@ -14,7 +14,7 @@ export default function Home() {
   return (
     // <ChakraProvider theme={theme}>
       <Box bg={palette.background} sx={{
-        minHeight:'100vh'
+        minHeight:'200vh'
       }}>
        <Navbar/>
       </Box>

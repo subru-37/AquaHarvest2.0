@@ -13,6 +13,8 @@ type colorPalette = {
 };
 type contextVariables = {
   palette: colorPalette;
+  profile: boolean;
+  setProfile: React.Dispatch<React.SetStateAction<boolean>>;
 };
 export const MyContext = createContext<contextVariables>({
   palette: {
@@ -22,12 +24,16 @@ export const MyContext = createContext<contextVariables>({
     background: "#fffafb",
     text: "#1f1f1f",
   },
+  profile: false,
+  setProfile: ()=>{}
 });
 
 export const useMyContext = () => useContext(MyContext);
 
 const ContextApi = ({ children }: { children: React.ReactNode }) => {
   const { colorMode, toggleColorMode } = useColorMode();
+
+  const [profile, setProfile] = useState<boolean>(false);
 
   const [palette, setPalette] = useState<colorPalette>({
     primary: "#33d7cc",
@@ -56,7 +62,7 @@ const ContextApi = ({ children }: { children: React.ReactNode }) => {
     }
   }, [colorMode]);
   return (
-    <MyContext.Provider value={{ palette }}>{children}</MyContext.Provider>
+    <MyContext.Provider value={{ palette, profile, setProfile }}>{children}</MyContext.Provider>
   );
 };
 
