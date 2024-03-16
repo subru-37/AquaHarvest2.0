@@ -62,7 +62,7 @@ const Navbar = () => {
         </Text>
         <Box
           sx={{
-            display: "flex",
+            display: {base:'none', md:'flex'},
             alignItems: "center",
             justifyContent: "space-between",
             height: "75px",
