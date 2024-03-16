@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { Providers } from "@/providers/ChakraCustomProvider";
+import ContextApi from "@/contexts/ContextApi";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,8 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
+      <body>
+        <Providers>
+          <ContextApi>{children}</ContextApi>
+        </Providers>
       </body>
     </html>
   );
