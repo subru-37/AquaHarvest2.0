@@ -26,11 +26,36 @@ const theme: Record<string, StyleConfig> = extendTheme({
     initialColorMode: "light",
     useSystemColorMode: false,
   },
-  fonts:{
-    body:'"Roboto", sans-serif;',
-    heading: '"Roboto", sans-serif;',
-    default: '"Roboto", sans-serif;'
-  }
+  fonts: {
+    body: '"Raleway", sans-serif',
+    heading: '"Raleway", sans-serif',
+    default: '"Raleway", sans-serif',
+  },
+  components: {
+    Button: {
+      baseStyle: (colorMode: any) => {
+        // console.log(colorMode);
+        // return {
+        //   backgroundColor: colorMode.colorMode === "light" ? "#fffafb" : "#050001",
+        //   _hover: {
+        //     backgroundColor: colorMode.colorMode === "light" ? "#fffafb" : "#050001",
+        //   },
+        // };
+      },
+      variants: (colorMode: any) => {
+        return {
+          solid: {
+            backgroundColor: colorMode.colorMode === "light" ? "#fffafb" : "#050001",
+            _hover: {
+              backgroundColor: colorMode.colorMode === "light" ? "#fffafb" : "#050001",
+            },
+            border: colorMode.colorMode === "light" ? '1px solid #e0e0e0' : '1px solid #1f1f1f',
+            borderRadius: '50px'
+          },
+        };
+      },
+    },
+  },
 });
 
 export default theme;
