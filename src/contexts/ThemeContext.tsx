@@ -49,8 +49,6 @@ const theme: Record<string, StyleConfig> = extendTheme({
             _hover: {
               backgroundColor: colorMode.colorMode === "light" ? "#fffafb" : "#050001",
             },
-            border: colorMode.colorMode === "light" ? '1px solid #e0e0e0' : '1px solid #1f1f1f',
-            borderRadius: '50px'
           },
         };
       },

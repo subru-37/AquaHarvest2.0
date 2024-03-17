@@ -71,17 +71,31 @@ const Landing = () => {
               lineHeight: "65px",
             }}
           >
-            Start your Marine Fish Farm <br />
+            Start your{" "}
+            <span style={{ color: palette.primary, fontStyle: "italic" }}>
+              Marine Fish Farm
+            </span>{" "}
+            <br />
             Journey!
           </Text>
           <Button
             cursor={"pointer"}
             sx={{
-              border: `1px solid ${palette.text}`,
+              border: `2px solid ${palette.text}`,
               borderRadius: "20px",
+              color:palette.text
+            }}
+            _hover={{
+              border: `2px solid ${palette.primary}`,
+              color:palette.primary
             }}
           >
-            <Text color={palette.text} fontSize={'1.2rem'}>Get Started <Icon as={FaExternalLinkAlt} sx={{fontSize:'0.9rem'}}/></Text>
+            <Text
+              fontSize={"1.2rem"}
+            >
+              Get Started{" "}
+              <Icon as={FaExternalLinkAlt} sx={{ fontSize: "0.9rem" }} />
+            </Text>
           </Button>
         </Box>
       </Box>

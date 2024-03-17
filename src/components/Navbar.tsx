@@ -56,8 +56,8 @@ const Navbar = () => {
             <Box
               sx={{
                 position: "absolute",
-                top: "-2px",
-                left: "2px",
+                top: "-1px",
+                left: "1px",
               }}
               color={palette.text}
               fontSize={"1.5rem"}
