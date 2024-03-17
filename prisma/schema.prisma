@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+//reference
+// model Brand {
+//   id       Int       @id @default(autoincrement())
+//   name     String
+//   products Product[]
+// }
+
+// model Product {
+//   id        Int      @id @default(autoincrement())
+//   title     String
+//   price     Int
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//   brand     Brand    @relation(fields: [brandId], references: [id])
+//   brandId   Int
+// }
+
+// migration 
+// -- CreateTable
+// CREATE TABLE "Brand" (
+//     "id" SERIAL NOT NULL,
+//     "name" TEXT NOT NULL,
+
+//     CONSTRAINT "Brand_pkey" PRIMARY KEY ("id")
+// );
+
+// -- CreateTable
+// CREATE TABLE "Product" (
+//     "id" SERIAL NOT NULL,
+//     "title" TEXT NOT NULL,
+//     "price" INTEGER NOT NULL,
+//     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+//     "updatedAt" TIMESTAMP(3) NOT NULL,
+//     "brandId" INTEGER NOT NULL,
+
+//     CONSTRAINT "Product_pkey" PRIMARY KEY ("id")
+// );
+
+// -- AddForeignKey
+// ALTER TABLE "Product" ADD CONSTRAINT "Product_brandId_fkey" FOREIGN KEY ("brandId") REFERENCES "Brand"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
